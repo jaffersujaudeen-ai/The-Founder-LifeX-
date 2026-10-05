@@ -1,0 +1,659 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #030605;
+    --black-soft: #07100c;
+
+    --green: #087552;
+    --green-light: #20b77f;
+
+    --gold: #d7b56a;
+    --gold-light: #f0d493;
+
+    --white: #f5f7f5;
+    --grey: #9aa69f;
+
+    --border: rgba(255, 255, 255, 0.10);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    color: var(--white);
+
+    font-family: "DM Sans", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(13, 125, 88, 0.25),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            #020403,
+            #07100c 50%,
+            #020403
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* BACKGROUND ORBS */
+
+.orb {
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: 0.15;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.orb-green {
+    left: -180px;
+    top: 30%;
+
+    background: var(--green-light);
+}
+
+.orb-gold {
+    right: -180px;
+    bottom: 10%;
+
+    background: var(--gold);
+}
+
+
+/* PAGE */
+
+.page {
+    width: min(100% - 32px, 1050px);
+
+    margin: auto;
+
+    padding: 34px 0 40px;
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+.brand-mark {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 2px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #148a62,
+            #06432f
+        );
+
+    border: 1px solid
+        rgba(215, 181, 106, 0.5);
+
+    box-shadow:
+        0 0 35px rgba(21, 151, 105, 0.18),
+        inset 0 0 20px rgba(255,255,255,0.05);
+}
+
+.brand-mark span {
+    font-family: "Playfair Display", serif;
+
+    font-weight: 700;
+
+    font-size: 14px;
+}
+
+.brand-name h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+.brand-name h1 span {
+    color: var(--gold);
+}
+
+.brand-name p {
+    margin-top: 3px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #718079;
+}
+
+
+/* HERO */
+
+.hero {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 105px auto 80px;
+}
+
+.mini-label {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+.mini-label span {
+    width: 25px;
+    height: 1px;
+
+    background: var(--gold);
+
+    opacity: 0.6;
+}
+
+.hero h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 9vw, 95px);
+
+    line-height: 0.92;
+
+    letter-spacing: -4px;
+
+    font-weight: 600;
+}
+
+.hero h2 em {
+    color: var(--gold);
+
+    font-style: normal;
+
+    font-weight: 500;
+}
+
+.hero p {
+    max-width: 520px;
+
+    margin: 30px auto 0;
+
+    color: var(--grey);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* DESTINATIONS */
+
+.destinations {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.section-title {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 3px;
+}
+
+.section-title span {
+    color: #67736d;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+}
+
+.section-title div {
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.12),
+            transparent
+        );
+}
+
+
+/* CARDS */
+
+.card {
+    position: relative;
+
+    min-height: 440px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.085),
+            rgba(255,255,255,0.025)
+        );
+
+    backdrop-filter: blur(25px);
+
+    transition:
+        transform 0.5s cubic-bezier(.2,.8,.2,1),
+        border-color 0.4s ease,
+        box-shadow 0.5s ease;
+}
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.10;
+
+    transition: 0.5s ease;
+}
+
+.founder::after {
+    top: -120px;
+    right: -100px;
+
+    background: var(--green-light);
+}
+
+.lifex::after {
+    bottom: -120px;
+    left: -100px;
+
+    background: var(--gold);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+
+    border-color:
+        rgba(215,181,106,0.45);
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,0.5);
+}
+
+.card:hover::after {
+    opacity: 0.28;
+}
+
+
+/* CARD NUMBER */
+
+.card-number {
+    position: relative;
+
+    z-index: 2;
+
+    color: #65726b;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ARROW */
+
+.card-icon {
+    position: absolute;
+
+    top: 26px;
+    right: 26px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    font-size: 20px;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease;
+}
+
+.card:hover .card-icon {
+    transform: rotate(45deg);
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+
+/* CARD BODY */
+
+.card-body {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 105px;
+}
+
+.category {
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+}
+
+.card h3 {
+    margin-top: 18px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(38px, 5vw, 55px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    font-weight: 600;
+}
+
+.card-body p {
+    max-width: 290px;
+
+    margin-top: 20px;
+
+    color: var(--grey);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* CARD BOTTOM */
+
+.card-bottom {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #d9dfdb;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+.progress {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.12);
+}
+
+.progress span {
+    display: block;
+
+    width: 25%;
+
+    height: 100%;
+
+    background: var(--gold);
+
+    transition: width 0.5s ease;
+}
+
+.card:hover .progress span {
+    width: 100%;
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 85px;
+
+    text-align: center;
+}
+
+.footer-line {
+    height: 1px;
+
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.13),
+            transparent
+        );
+}
+
+footer h4 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+footer h4 span {
+    color: var(--gold);
+}
+
+footer p {
+    margin-top: 10px;
+
+    color: #68756e;
+
+    font-size: 10px;
+}
+
+footer small {
+    display: block;
+
+    margin-top: 25px;
+
+    color: #424d48;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 750px) {
+
+    .hero {
+        margin-top: 85px;
+    }
+
+    .destinations {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+
+    .page {
+        width: min(100% - 26px, 480px);
+
+        padding-top: 25px;
+    }
+
+    .brand-mark {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand-name h1 {
+        font-size: 16px;
+    }
+
+    .hero {
+        margin:
+            75px auto
+            55px;
+    }
+
+    .hero h2 {
+        font-size: 54px;
+
+        letter-spacing: -2.5px;
+    }
+
+    .hero p {
+        font-size: 13px;
+
+        padding: 0 10px;
+    }
+
+    .card {
+        min-height: 390px;
+
+        padding: 25px;
+
+        border-radius: 25px;
+    }
+
+    .card-body {
+        margin-top: 90px;
+    }
+
+    .card h3 {
+        font-size: 42px;
+    }
+
+    .card-bottom {
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+    }
+
+}
+
+
+/* SMALL PHONE */
+
+@media (max-width: 370px) {
+
+    .hero h2 {
+        font-size: 46px;
+    }
+
+    .card {
+        min-height: 370px;
+    }
+
+    .card h3 {
+        font-size: 37px;
+    }
+
+}
