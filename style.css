@@ -925,3 +925,270 @@ footer small {
     }
 
 }
+
+/* ==================================
+   THE FOUNDER & LIFEX CONTACTS
+================================== */
+
+.contact-section {
+    margin-top: 105px;
+    padding-top: 10px;
+}
+
+.contact-heading {
+    max-width: 600px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.contact-eyebrow {
+    color: #d7b56a;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.contact-heading h2 {
+    margin-top: 17px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 6vw, 65px);
+    font-weight: 600;
+    letter-spacing: -2px;
+}
+
+.contact-heading h2 span {
+    color: #20b77f;
+}
+
+.contact-heading > p {
+    max-width: 470px;
+    margin: 18px auto 0;
+    color: #9aa69f;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* CONTACT GROUPS */
+
+.contact-group {
+    margin-bottom: 48px;
+}
+
+.contact-group-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.group-number {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border: 1px solid rgba(215,181,106,0.35);
+    border-radius: 14px;
+    color: #d7b56a;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.contact-group-heading h3 {
+    color: #f5f7f5;
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.contact-group-heading p {
+    margin-top: 5px;
+    color: #89958e;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* RESPONSIVE CONTACT GRID */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+/* CONTACT CARDS */
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 14px;
+    padding: 21px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 19px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.065),
+        rgba(255,255,255,0.018)
+    );
+    color: #f5f7f5;
+    text-decoration: none;
+    backdrop-filter: blur(18px);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(215,181,106,0.45);
+    background: rgba(15,91,64,0.13);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+.contact-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.045);
+    color: #d7b56a;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.whatsapp .contact-icon {
+    color: #6ee7a0;
+}
+
+.linkedin .contact-icon {
+    color: #93c5fd;
+}
+
+.instagram .contact-icon {
+    color: #f9a8d4;
+}
+
+.email .contact-icon {
+    color: #f0d493;
+}
+
+.contact-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    gap: 6px;
+}
+
+.contact-info strong {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.contact-info small {
+    color: #89958e;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.contact-arrow {
+    flex-shrink: 0;
+    color: #d7b56a;
+    font-size: 19px;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-arrow {
+    transform: translate(3px, -3px);
+}
+
+/* BOTTOM SIGNATURE */
+
+.contact-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.contact-bottom p {
+    color: #839087;
+    font-size: 9px;
+    line-height: 1.8;
+    letter-spacing: 0.8px;
+    text-align: center;
+}
+
+.bottom-line {
+    width: 35px;
+    height: 1px;
+    background: rgba(215,181,106,0.4);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .contact-section {
+        margin-top: 75px;
+    }
+
+    .contact-heading {
+        margin-bottom: 40px;
+    }
+
+    .contact-heading h2 {
+        font-size: 46px;
+        letter-spacing: -1.5px;
+    }
+
+    .contact-heading > p {
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 11px;
+    }
+
+    .contact-card {
+        padding: 17px;
+        border-radius: 16px;
+    }
+
+    .contact-group-heading h3 {
+        font-size: 21px;
+    }
+
+    .contact-info strong {
+        font-size: 12px;
+    }
+
+    .contact-bottom {
+        gap: 8px;
+    }
+
+    .contact-bottom p {
+        font-size: 8px;
+    }
+
+    .bottom-line {
+        width: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-card,
+    .contact-arrow {
+        transition: none;
+    }
+}
