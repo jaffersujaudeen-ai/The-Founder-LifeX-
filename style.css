@@ -454,11 +454,11 @@ body {
 
     color: var(--gold);
 
-    font-size: 13px;
+    font-size: 15px;
 
-    font-weight: 700;
+    font-weight: 800;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 }
 
 .mini-label span {
